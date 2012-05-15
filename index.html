@@ -1,0 +1,333 @@
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link type="text/css" rel="stylesheet" href="./jqtouch-1.0-b4-rc/css/jqt.css"/>
+		<link type="text/css" rel="stylesheet" href="./jqtouch-1.0-b4-rc/themes/css/jqtouch.css"/>
+		<script type="text/javascript" src="./jqtouch-1.0-b4-rc/src/lib/zepto.min.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="./jqtouch-1.0-b4-rc/src/jqtouch.min.js"></script>
+		<script type="text/javascript" src="./jqtouch-1.0-b4-rc/src/lib/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="./makeQuestion.js"></script>
+		<script type="text/javascript" src="./touch.js"></script>
+		<script type="text/javascript">
+			jQuery.noConflict();
+			jQuery(document).ready(function(){
+				var jQT = new $.jQTouch({
+				});
+			});
+			getText = new mkHtml();
+			getText.prototype = getHttp();
+		</script>
+		<style type="text/css">
+			.question{
+				font-size : 25px;
+			color : #D5D6D7;
+			}
+			.select{
+				font-size : 22px;
+				color : white;
+			}
+			.answer{
+				font-size : 25px;
+				color : white;
+			}
+		</style>
+		<title>メインページ</title>
+	</head>
+	<body onload="location.hash='home'; return false;">
+		<!-- home start-->
+		<div id="home">
+			<div class="toolbar">
+				<h1>言語選択</h1>
+			</div>
+			<ul class="edgetoedge">
+				<li class="arrow"><a href="#japanese">日本語</a></li>
+				<li class="arrow"><a href="#english">English</a></li>
+				<li class="arrow"><a href="#chinese">中国語</a></li>
+				<li class="arrow"><a href="#about">About</a></li>
+			</ul>
+		</div>
+		<!-- home end -->
+		<!-- about start -->
+		<div id="about">
+			<div class="toolbar">
+				<a class="back" href="#">Home</a>
+				<h1>About</h1>
+			</div>
+			<div>
+				<p>About</p>
+			</div>
+		</div>
+		<!-- about end -->
+		<!-- japanese start -->
+		<div id="japanese">
+			<div class="toolbar">
+				<a class="back" href="#">Home</a>
+				<h1>対訳選択 日本語</h1>
+			</div>
+			<ul class="edgetoedge">
+				<li class="arrow"><a href="#japanese-english">English</a></li>
+				<li class="arrow"><a href="#japanese-chinese">中国語</a></li>
+			</ul>
+		</div>
+		<!-- japanese end -->
+			<!-- japanese-english start -->
+			<div id="japanese-english">
+				<div class="toolbar">
+					<a class="back" href="#japanese">戻る</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#jePractice" onclick="navigation.movePractice('jep');">練習</a></li>
+					<li class="arrow"><a href="#jeTest" onclick="navigation.moveTest('jet');">試験</a></li>
+				</ul>
+			</div>
+			<!-- japanese-english end -->
+				<!-- jePractice start -->
+				<div id="jePractice">
+					<div class="toolbar">
+						<a class="back" href="#japanese-english">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="jepQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'jep');">問題</a>
+					<a id="jepAB" class='whiteButton' onclick="answer.mktext('jep');">回答</a>
+					<div id="jepQ" class="question"></div><br />
+					<div id="jepS" class="select"></div><br />
+					<div id="jepA" class="answer"></div>
+				</div>
+				<!-- jePractice end -->
+				<!-- jeTest start -->
+				<div id="jeTest">
+					<div class="toolbar">
+						<a id="jetBB" class="back" href="#japanese-english">戻る</a>
+						<h1 id="jetTitle">試験</h1>
+					</div>
+					<a id="jetQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'jet');navigation.count('jet');">問題</a>
+					<a id="jetAB" class='whiteButton' onclick="answer.mktext('jet');navigation.countEnd('jet');">回答</a>
+					<a id="jetRB" class='whiteButton' onclick="navigation.result('jet');">結果</a>
+					<div id="jetQ" class="question"></div><br />
+					<div id="jetS" class="select"></div><br />
+					<div id="jetA" class="answer"></div>
+				</div>
+				<!-- jeTest end -->
+			<!-- japanese-chinese start -->
+			<div id="japanese-chinese">
+				<div class="toolbar">
+					<a class="back" href="#">戻る</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#jcPractice" onclick="navigation.movePractice('jcp');">練習</a></li>
+					<li class="arrow"><a href="#jcTest" onclick="navigation.moveTest('jct');">試験</a></li>
+				</ul>
+			</div>
+			<!-- japanese-chinese end -->
+				<!-- jcPractice start -->
+				<div id="jcPractice">
+					<div class="toolbar">
+						<a class="back" href="#japanese-chinese">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="jcpQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'jcp');">問題</a>
+					<a id="jcpAB" class='whiteButton' onclick="answer.mktext('jcp');">回答</a>
+					<div id="jcpQ" class="question"></div><br />
+					<div id="jcpS" class="select"></div><br />
+					<div id="jcpA" class="answer"></div>
+				</div>
+				<!-- jcPractice end -->
+				<!-- jcTest start -->
+				<div id="jcTest">
+					<div class="toolbar">
+						<a id="jctBB" class="back" href="#japanese-chinese">戻る</a>
+						<h1 id="jctTitle">試験</h1>
+					</div>
+					<a id="jctQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'jct');navigation.count('jct');">問題</a>
+					<a id="jctAB" class='whiteButton' onclick="answer.mktext('jct');navigation.countEnd('jct');">回答</a>
+					<a id="jctRB" class='whiteButton' onclick="navigation.result('jct');">結果</a>
+					<div id="jctQ" class="question"></div><br />
+					<div id="jctS" class="select"></div><br />
+					<div id="jctA" class="answer"></div>
+				</div>
+				<!-- jcTest end -->
+		<!-- english start -->
+		<div id="english">
+			<div class="toolbar">
+				<a class="back" href="#">Home</a>
+				<h1>対訳選択 English</h1>
+			</div>
+			<ul class="edgetoedge">
+
+				<li class="arrow"><a href="#english-japanese">日本語</a></li>
+				<li class="arrow"><a href="#english-chinese">中国語</a></li>
+			</ul>
+		</div>
+		<!-- english end -->
+			<!-- english-japanese start -->
+			<div id="english-japanese">
+				<div class="toolbar">
+					<a class="back" href="#">戻る</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#ejPractice" onclick="navigation.movePractice('ejp')">練習</a></li>
+					<li class="arrow"><a href="#ejTest" onclick="navigation.moveTest('ejt');">試験</a></li>
+				</ul>
+			</div>
+			<!-- english-japanese end -->
+				<!-- ejPractice start -->
+				<div id="ejPractice">
+					<div class="toolbar">
+						<a class="back" href="#english-japanese">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="ejpQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'ejp');">問題</a>
+					<a id="ejpAB" class='whiteButton' onclick="answer.mktext('ejp');">回答</a>
+					<div id="ejpQ" class="question"></div><br />
+					<div id="ejpS" class="select"></div><br />
+					<div id="ejpA" class="answer"></div>
+				</div>
+				<!-- ejPractice end -->
+				<!-- ejTest start -->
+				<div id="ejTest">
+					<div class="toolbar">
+						<a id="ejtBB" class="back" href="#english-japanese">戻る</a>
+						<h1 id="ejtTitle">試験</h1>
+					</div>
+					<a id="ejtQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'ejt');navigation.count('ejt');">問題</a>
+					<a id="ejtAB" class='whiteButton' onclick="answer.mktext('ejt');navigation.countEnd('ejt');">回答</a>
+					<a id="ejtRB" class='whiteButton' onclick="navigation.result('ejt');">結果</a>
+					<div id="ejtQ" class="question"></div><br />
+					<div id="ejtS" class="select"></div><br />
+					<div id="ejtA" class="answer"></div>
+				</div>
+				<!-- ejTest end -->
+			<!-- english-chinese start -->
+			<div id="english-chinese">
+				<div class="toolbar">
+					<a class="back" href="#">戻る</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#ecPractice" onclick="navigation.movePractice('ecp')">練習</a></li>
+					<li class="arrow"><a href="#ecTest" onclick="navigation.moveTest('ect')">試験</a></li>
+				</ul>
+			</div>
+			<!-- english-chinese end -->
+				<!-- ecPractice start -->
+				<div id="ecPractice">
+					<div class="toolbar">
+						<a class="back" href="#english-chinese">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="ecpQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'ecp');">問題</a>
+					<a id="ecpAB" class='whiteButton' onclick="answer.mktext('ecp');">回答</a>
+					<div id="ecpQ" class="question"></div><br />
+					<div id="ecpS" class="select"></div><br />
+					<div id="ecpA" class="answer"></div>
+				</div>
+				<!-- ejPractice end -->
+				<!-- ejTest start -->
+				<div id="ecTest">
+					<div class="toolbar">
+						<a id="ectBB" class="back" href="#english-chinese">戻る</a>
+						<h1 id="ectTitle">試験</h1>
+					</div>
+					<a id="ectQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'ect');navigation.count('ect');">問題</a>
+					<a id="ectAB" class='whiteButton' onclick="answer.mktext('ect');navigation.countEnd('ect');">回答</a>
+					<a id="ectRB" class='whiteButton' onclick="navigation.result('ect');">結果</a>
+					<div id="ectQ" class="question"></div><br />
+					<div id="ectS" class="select"></div><br />
+					<div id="ectA" class="answer"></div>
+				</div>
+				<!-- ejTest end -->
+		<!-- chainese start -->
+		<div id="chinese">
+			<div class="toolbar">
+				<a class="back" href="#">Home</a>
+				<h1>対訳選択 中国語</h1>
+			</div>
+			<ul class="edgetoedge">
+				<li class="arrow"><a href="#chinese-japanese">日本語</a></li>
+				<li class="arrow"><a href="#chinese-english">English</a></li>
+			</ul>
+		</div>
+		<!-- chinese end -->
+			<!-- chinese-japanese start -->
+			<div id="chinese-japanese">
+				<div class="toolbar">
+					<a class="back" href="#">戻る</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#cjPractice" onclick="navigation.movePractice('cjp');">練習</a></li>
+					<li class="arrow"><a href="#cjTest" onclick="navigation.moveTest('cjt');">試験</a></li>
+				</ul>
+			</div>
+			<!-- chinese-japanese end -->
+				<!-- cjPractice start -->
+				<div id="cjPractice">
+					<div class="toolbar">
+						<a class="back" href="#chinese-japanese">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="cjpQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'cjp');">問題</a>
+					<a id="cjpAB" class='whiteButton' onclick="answer.mktext('cjp');">回答</a>
+					<div id="cjpQ" class="question"></div><br />
+					<div id="cjpS" class="select"></div><br />
+					<div id="cjpA" class="answer"></div>
+				</div>
+				<!-- cjPractice end -->
+				<!-- cjTest start -->
+				<div id="cjTest">
+					<div class="toolbar">
+						<a id="cjtBB" class="back" href="#chinese-japanese">戻る</a>
+						<h1 id="cjtTitle">試験</h1>
+					</div>
+					<a id="cjtQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'cjt');navigation.count('cjt');">問題</a>
+					<a id="cjtAB" class='whiteButton' onclick="answer.mktext('cjt');navigation.countEnd('cjt');">回答</a>
+					<a id="cjtRB" class='whiteButton' onclick="navigation.result('cjt');">結果</a>
+					<div id="cjtQ" class="question"></div><br />
+					<div id="cjtS" class="select"></div><br />
+					<div id="cjtA" class="answer"></div>
+				</div>
+				<!-- cjTest end -->
+			<!-- chinese-english start -->
+			<div id="chinese-english">
+				<div class="toolbar">
+					<a class="back" href="#">Home</a>
+					<h1>形式選択</h1>
+				</div>
+				<ul class="edgetoedge">
+					<li class="arrow"><a href="#cePractice" onclick="navigation.movePractice('cep');">練習</a></li>
+					<li class="arrow"><a href="#ceTest" onclick="navigation.moveTest('cet');">試験</a></li>
+				</ul>
+			</div>
+			<!-- chinese-english end -->
+				<!-- cePractice start -->
+				<div id="cePractice">
+					<div class="toolbar">
+						<a class="back" href="#chinese-english">戻る</a>
+						<h1>練習問題</h1>
+					</div>
+					<a id="cepQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'cep');">問題</a>
+					<a id="cepAB" class='whiteButton' onclick="answer.mktext('cep');">回答</a>
+					<div id="cepQ" class="question"></div><br />
+					<div id="cepS" class="select"></div><br />
+					<div id="cepA" class="answer"></div>
+				</div>
+				<!-- cePractice end -->
+				<!-- ceTest start -->
+				<div id="ceTest">
+					<div class="toolbar">
+						<a id="cetBB" class="back" href="#chinese-english">戻る</a>
+						<h1 id="cetTitle">試験</h1>
+					</div>
+					<a id="cetQB" class='whiteButton' onclick="getText.requestFile('', 'GET', './test.txt', 'cet');navigation.count('cet');">問題</a>
+					<a id="cetAB" class='whiteButton' onclick="answer.mktext('cet');navigation.countEnd('cet');">回答</a>
+					<a id="cetRB" class='whiteButton' onclick="navigation.result('cet');">結果</a>
+					<div id="cetQ" class="question"></div><br />
+					<div id="cetS" class="select"></div><br />
+					<div id="cetA" class="answer"></div>
+				</div>
+				<!-- ceTest end -->
+	</body>
+</html>

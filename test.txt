@@ -1,0 +1,133 @@
+var questions = [
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "This"},
+				{"name" : "t12", "word" : "(       )"},
+				{"name" : "t13", "word" : "an"},
+				{"name" : "t14", "word" : "apple."}
+			],
+			[
+				{"name" : "t21", "word" : "This"},
+				{"name" : "t22", "word" : "(       )"},
+				{"name" : "t23", "word" : "an"},
+				{"name" : "t24", "word" : "apple."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "be"},
+			{"name" : "s2", "word" : "is"},
+			{"name" : "s3", "word" : "are"},
+			{"name" : "s4", "word" : "is"}
+		],
+		"answerText" : "This is an apple",
+		"answerSelect" : [ "s2",  "s4"]
+	},
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "This"},
+				{"name" : "t12", "word" : "is"},
+				{"name" : "t13", "word" : "(       )"},
+				{"name" : "t14", "word" : "apple."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "a"},
+			{"name" : "s2", "word" : "an"},
+			{"name" : "s3", "word" : "are"},
+			{"name" : "s4", "word" : "was"}
+		],
+		"answerText" : "This is an apple",
+		"answerSelect" : [ "s2" ]
+	},
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "(       )"},
+				{"name" : "t12", "word" : "(      )"},
+				{"name" : "t13", "word" : "(     )"},
+				{"name" : "t14", "word" : "(       )."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "This"},
+			{"name" : "s2", "word" : "is"},
+			{"name" : "s3", "word" : "an"},
+			{"name" : "s4", "word" : "apple"}
+		],
+		"answerText" : "This is an apple",
+		"answerSelect" : [ "s1","s2","s3","s4" ]
+	},
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "Too"},
+				{"name" : "t12", "word" : "mach"},
+				{"name" : "t13", "word" : "(     )"},
+				{"name" : "t14", "word" : "casees"},
+				{"name" : "t15", "word" : "overheating."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "too"},
+			{"name" : "s2", "word" : "load"},
+			{"name" : "s3", "word" : "loof"},
+			{"name" : "s4", "word" : "loading"}
+		],
+		"answerText" : "Too mach load casees overhiting.",
+		"answerSelect" : [ "s2" ]
+	},
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "Adding"},
+				{"name" : "t12", "word" : "5"},
+				{"name" : "t13", "word" : "to"},
+				{"name" : "t14", "word" : "5"},
+				{"name" : "t15", "word" : "(        )"},
+				{"name" : "t16", "word" : "10."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "give"},
+			{"name" : "s2", "word" : "is"},
+			{"name" : "s3", "word" : "gives"},
+			{"name" : "s4", "word" : "from"}
+		],
+		"answerText" : "Adding 5 to 5 gives 10.",
+		"answerSelect" : [ "s3" ]
+	},
+	{
+		"text" :
+		[
+			[
+				{"name" : "t11", "word" : "Water"},
+				{"name" : "t12", "word" : "freezes"},
+				{"name" : "t13", "word" : "at"},
+				{"name" : "t14", "word" : "zero"},
+				{"name" : "t15", "word" : "degree"},
+				{"name" : "t16", "word" : "(         )."}
+			]
+		],
+		"select" :
+		[
+			{"name" : "s1", "word" : "too"},
+			{"name" : "s2", "word" : "load"},
+			{"name" : "s3", "word" : "center"},
+			{"name" : "s4", "word" : "centigrade"}
+		],
+		"answerText" : "Water freezes at zero degree centigrade.",
+		"answerSelect" : [ "s4" ]
+	}
+]
